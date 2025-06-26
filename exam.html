@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Math Tests – 5 Levels</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .level {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .level h2 {
+      margin-top: 0;
+    }
+
+    .toggle-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .toggle-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .questions {
+      display: none;
+    }
+
+    .visible {
+      display: block;
+    }
+
+    ol {
+      padding-left: 20px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      .toggle-btn {
+        width: 100%;
+      }
+    }
+    .timer-area {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+  </style>
+</head>
+<body>
+
+  <h1>Math Test – 5 Levels (Log, Sets, Functions, Lines)</h1>
+
+  <!-- Level Template (Use this and duplicate for levels 2–5 with varied questions) -->
+  <div class="level">
+    <h2>Level 1 – Easy</h2>
+    <div class="timer-area">
+  <button class="toggle-btn" onclick="startTimer('timer1')">Start 1-Hour Timer</button>
+  <p><strong>Time Left:</strong> <span id="timer1">60:00</span></p>
+</div>
+
+    <button class="toggle-btn" onclick="toggle('q1')">Show/Hide Questions</button>
+    <div class="questions" id="q1">
+      <p><strong>Section A (1×5 = 5)</strong></p>
+      <ol>
+        <li>\(\log_{10}(100)\)</li>
+        <li>Power set of \(\{0, 1\}\)</li>
+        <li>Is \(f(x) = x + 1\) a function?</li>
+        <li>Slope of line \(y = 3x + 2\)</li>
+        <li>\(A = \{2,4,6\}, B = \{4,6,8\}\). Find \(A \cap B\)</li>
+      </ol>
+
+      <p><strong>Section B (2×5 = 10)</strong></p>
+      <ol start="6">
+        <li>Solve: \(\log_{10}(x) = 2\)</li>
+        <li>List all elements in \(A = \{x \in \mathbb{N} : x < 5\}\)</li>
+        <li>\(f(x) = 2x\). Find \(f(3)\) and \(f(5)\)</li>
+        <li>Line with slope 2 through point (0, 1)</li>
+        <li>Is \(R = \{(1,1), (2,2), (3,3)\}\) reflexive?</li>
+      </ol>
+
+      <p><strong>Section C (3×5 = 15)</strong></p>
+      <ol start="11">
+        <li>Simplify: \(\log_2(8) + \log_2(4)\)</li>
+        <li>Find \(A \cup B\) and \(A \cap B\), where \(A = \{1,2,3\}, B = \{2,3,4\}\)</li>
+        <li>Graph \(f(x) = x + 1\) for \(x = -2\) to \(2\)</li>
+        <li>Slope of line joining (2,3) and (4,7)</li>
+        <li>Equation of line through (0,0) and (2,3)</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Level 2 -->
+  <div class="level">
+    <h2>Level 2 – Easy-Medium</h2>
+     <div class="timer-area">
+  <button class="toggle-btn" onclick="startTimer('timer1')">Start 1-Hour Timer</button>
+  <p><strong>Time Left:</strong> <span id="timer1">60:00</span></p>
+</div>
+    <button class="toggle-btn" onclick="toggle('q2')">Show/Hide Questions</button>
+    <div class="questions" id="q2">
+      <p><strong>Section A</strong></p>
+      <ol>
+        <li>\(\log_{10}(1000)\)</li>
+        <li>\(A = \{1,2\}, B = \{2,3\}\): Find \(A \cup B\)</li>
+        <li>Define a function in words.</li>
+        <li>Find slope of line joining (1,1) and (2,2)</li>
+        <li>Find domain of \(f(x) = \frac{1}{x}\)</li>
+      </ol>
+      <p><strong>Section B</strong></p>
+      <ol start="6">
+        <li>Simplify: \(\log_{2}(4) + \log_{2}(8)\)</li>
+        <li>List elements of \(A = \{x \in \mathbb{N} : x \leq 6\}\)</li>
+        <li>Find \(f(1), f(2), f(3)\) for \(f(x) = x^2\)</li>
+        <li>Equation of line with slope 1 and passing through (1,2)</li>
+        <li>Is the relation \(R = \{(a,b) : a = b\}\) symmetric?</li>
+      </ol>
+      <p><strong>Section C</strong></p>
+      <ol start="11">
+        <li>Find number of subsets of \(\{a, b, c\}\)</li>
+        <li>Check whether \(f(x) = x^2\) is one-one</li>
+        <li>Find line perpendicular to \(y = -2x + 1\) through (0,0)</li>
+        <li>Evaluate \(\log_{5}(25)\)</li>
+        <li>Graph \(f(x) = |x|\) for \(x = -3\) to \(3\)</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Level 3 -->
+  <div class="level">
+    <h2>Level 3 – Medium</h2>
+     <div class="timer-area">
+  <button class="toggle-btn" onclick="startTimer('timer1')">Start 1-Hour Timer</button>
+  <p><strong>Time Left:</strong> <span id="timer1">60:00</span></p>
+</div>
+    <button class="toggle-btn" onclick="toggle('q3')">Show/Hide Questions</button>
+    <div class="questions" id="q3">
+      <p><strong>Section A</strong></p>
+      <ol>
+        <li>Find \(\log_{10}(0.01)\)</li>
+        <li>Is \(f(x) = \frac{1}{x-1}\) defined at \(x=1\)?</li>
+        <li>Slope of horizontal line</li>
+        <li>Intersection of \(A = \{1,2\}, B = \{2,3\}\)</li>
+        <li>Image of 4 under \(f(x) = x^2 + 1\)</li>
+      </ol>
+      <p><strong>Section B</strong></p>
+      <ol start="6">
+        <li>Solve: \(\log_{2}(x) = 3\)</li>
+        <li>Set of all subsets of \(\{a, b\}\)</li>
+        <li>Is \(f(x) = x^3\) increasing?</li>
+        <li>Equation of line through (2, 3) and slope -1</li>
+        <li>Check if \(R = \{(a,b) : a - b \text{ is even}\}\) is symmetric</li>
+      </ol>
+      <p><strong>Section C</strong></p>
+      <ol start="11">
+        <li>Simplify \(\log\left(\frac{a^2}{b}\right)\)</li>
+        <li>Determine domain of \(f(x) = \sqrt{x - 2}\)</li>
+        <li>Find angle between lines with slopes 1 and -1</li>
+        <li>Line passing through (2, -1) and (4, 3)</li>
+        <li>Draw graph of \(f(x) = x^2 - 1\)</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Level 4 -->
+  <div class="level">
+    <h2>Level 4 – Medium-Hard</h2>
+     <div class="timer-area">
+  <button class="toggle-btn" onclick="startTimer('timer1')">Start 1-Hour Timer</button>
+  <p><strong>Time Left:</strong> <span id="timer1">60:00</span></p>
+</div>
+    <button class="toggle-btn" onclick="toggle('q4')">Show/Hide Questions</button>
+    <div class="questions" id="q4">
+      <p><strong>Section A</strong></p>
+      <ol>
+        <li>Simplify: \(\log_{3}(9)\)</li>
+        <li>Find cardinality of \(A = \{a,b,c,d\}\)</li>
+        <li>Slope of vertical line</li>
+        <li>Check if \(f(x) = \frac{1}{x}\) is odd</li>
+        <li>Find \(A \setminus B\) where \(A = \{1,2,3\}, B = \{2,3,4\}\)</li>
+      </ol>
+      <p><strong>Section B</strong></p>
+      <ol start="6">
+        <li>Check injectivity of \(f(x) = x^3 + 1\)</li>
+        <li>Graph \(f(x) = -x\)</li>
+        <li>Find slope of line through (-2, 4) and (1, 1)</li>
+        <li>Simplify: \(\log_{10}(10000)\)</li>
+        <li>Define relation and give example</li>
+      </ol>
+      <p><strong>Section C</strong></p>
+      <ol start="11">
+        <li>Equation of line parallel to \(y = 2x + 5\) through (1, 1)</li>
+        <li>Check if \(R = \{(a,b) : a^2 = b^2\}\) is symmetric</li>
+        <li>Simplify: \(\log(ab) - \log(b)\)</li>
+        <li>Draw \(f(x) = \sqrt{x}\)</li>
+        <li>Find distance between (0,0) and (3,4)</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Level 5 -->
+  <div class="level">
+    <h2>Level 5 – Hard</h2>
+     <div class="timer-area">
+  <button class="toggle-btn" onclick="startTimer('timer1')">Start 1-Hour Timer</button>
+  <p><strong>Time Left:</strong> <span id="timer1">60:00</span></p>
+</div>
+    <button class="toggle-btn" onclick="toggle('q5')">Show/Hide Questions</button>
+    <div class="questions" id="q5">
+      <p><strong>Section A</strong></p>
+      <ol>
+        <li>Evaluate \(\log_{2}(\frac{1}{8})\)</li>
+        <li>Define equivalence relation</li>
+        <li>Domain of \(f(x) = \frac{1}{x^2 - 4}\)</li>
+        <li>Slope between (1,5) and (4,-1)</li>
+        <li>Find \(f(2)\) for \(f(x) = |x - 3|\)</li>
+      </ol>
+      <p><strong>Section B</strong></p>
+      <ol start="6">
+        <li>Check if \(f(x) = \frac{1}{x}\) is onto in \(\mathbb{R} \setminus \{0\}\)</li>
+        <li>Prove: \(\log(a^2) = 2\log a\)</li>
+        <li>Find inverse of \(f(x) = 2x + 5\)</li>
+        <li>Equation of line through (1,1) with slope \(-\frac{3}{2}\)</li>
+        <li>Check if relation \(R = \{(a,b) : a + b = 0\}\) is transitive</li>
+      </ol>
+      <p><strong>Section C</strong></p>
+      <ol start="11">
+        <li>Graph \(f(x) = \frac{1}{x}\)</li>
+        <li>Prove: \(f(x) = x^2\) is not one-one</li>
+        <li>Find value of \(k\) so that A(1,2), B(3,6), C(k,10) are collinear</li>
+        <li>Simplify: \(\log(\frac{a^3b^2}{c})\)</li>
+        <li>Check if \(f(x) = \sqrt{x}\) is defined for all real numbers</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="level">
+  <h2>Answers to All Levels</h2>
+
+  <!-- Level 1 Answers -->
+  <button class="toggle-btn" onclick="toggle('a1')">Show/Hide Level 1 Answers</button>
+  <div class="questions" id="a1">
+    <ol>
+      <li>2</li>
+      <li>\{\{\}, \{0\}, \{1\}, \{0,1\}\}</li>
+      <li>Yes, it's a function.</li>
+      <li>3</li>
+      <li>\{4, 6\}</li>
+      <li>100</li>
+      <li>\{1,2,3,4\}</li>
+      <li>6, 10</li>
+      <li>y = 2x + 1</li>
+      <li>Yes</li>
+      <li>5</li>
+      <li>\{1,2,3,4\}, \{2,3\}</li>
+      <li>Line from (-2, -1) to (2, 3)</li>
+      <li>2</li>
+      <li>y = 1.5x</li>
+    </ol>
+  </div>
+
+  <!-- Level 2 Answers -->
+  <button class="toggle-btn" onclick="toggle('a2')">Show/Hide Level 2 Answers</button>
+  <div class="questions" id="a2">
+    <ol>
+      <li>3</li>
+      <li>\{1, 2, 3\}</li>
+      <li>A rule that assigns one output to each input.</li>
+      <li>1</li>
+      <li>All real x ≠ 0</li>
+      <li>5</li>
+      <li>\{1,2,3,4,5,6\}</li>
+      <li>1, 4, 9</li>
+      <li>y = x + 1</li>
+      <li>Yes</li>
+      <li>8</li>
+      <li>No, not one-one</li>
+      <li>y = 0.5x</li>
+      <li>2</li>
+      <li>V-shaped graph centered at (0,0)</li>
+    </ol>
+  </div>
+
+  <!-- Level 3 Answers -->
+  <button class="toggle-btn" onclick="toggle('a3')">Show/Hide Level 3 Answers</button>
+  <div class="questions" id="a3">
+    <ol>
+      <li>-2</li>
+      <li>No</li>
+      <li>0</li>
+      <li>\{2\}</li>
+      <li>17</li>
+      <li>8</li>
+      <li>\{\{\}, \{a\}, \{b\}, \{a,b\}\}</li>
+      <li>Yes</li>
+      <li>y = -x + 5</li>
+      <li>Yes</li>
+      <li>\(2\log a - \log b\)</li>
+      <li>\(x \geq 2\)</li>
+      <li>90°</li>
+      <li>y = 2x - 1</li>
+      <li>U-shaped graph</li>
+    </ol>
+  </div>
+
+  <!-- Level 4 Answers -->
+  <button class="toggle-btn" onclick="toggle('a4')">Show/Hide Level 4 Answers</button>
+  <div class="questions" id="a4">
+    <ol>
+      <li>2</li>
+      <li>4</li>
+      <li>Undefined</li>
+      <li>Yes</li>
+      <li>\{1\}</li>
+      <li>Yes</li>
+      <li>Decreasing line</li>
+      <li>-1</li>
+      <li>4</li>
+      <li>A set of ordered pairs</li>
+      <li>y = 2x - 1</li>
+      <li>Yes</li>
+      <li>\(\log a\)</li>
+      <li>Half-parabola starting from x = 0</li>
+      <li>5</li>
+    </ol>
+  </div>
+
+  <!-- Level 5 Answers -->
+  <button class="toggle-btn" onclick="toggle('a5')">Show/Hide Level 5 Answers</button>
+  <div class="questions" id="a5">
+    <ol>
+      <li>-3</li>
+      <li>A relation that's reflexive, symmetric, transitive</li>
+      <li>All real x ≠ ±2</li>
+      <li>-2</li>
+      <li>1</li>
+      <li>Yes</li>
+      <li>\(2\log a\)</li>
+      <li>\(f^{-1}(x) = \frac{x-5}{2}\)</li>
+      <li>y = -1.5x + 2.5</li>
+      <li>No</li>
+      <li>Hyperbola graph</li>
+      <li>No</li>
+      <li>k = 5</li>
+      <li>\(3\log a + 2\log b - \log c\)</li>
+      <li>Only for \(x \geq 0\)</li>
+    </ol>
+  </div>
+</div>
+
+
+  <!-- Toggle Script -->
+  <script>
+    function toggle(id) {
+      document.getElementById(id).classList.toggle('visible');
+    }
+    const timers = {};
+
+  function startTimer(id) {
+    if (timers[id]) return; // Prevent multiple timers on same element
+
+    let time = 60 * 60; // 1 hour in seconds
+    const display = document.getElementById(id);
+
+    function updateTimer() {
+      const minutes = Math.floor(time / 60);
+      const seconds = time % 60;
+      display.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      if (time > 0) {
+        time--;
+        timers[id] = setTimeout(updateTimer, 1000);
+      } else {
+        alert("Time's up for this level!");
+      }
+    }
+
+    updateTimer();
+  }
+  </script>
+
+</body>
+</html>
